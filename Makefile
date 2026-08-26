@@ -70,7 +70,8 @@ boot/boot:	boot/boot.s tools/system
 	$(LD86) -s -o boot/boot boot/boot.o
 	
 run:
-	qemu-system-i386 -drive format=raw,file=Image,index=0,if=floppy -boot a -hdb hd_oldlinux.img -m 8 -machine pc-i440fx-2.5
+	dd if=/dev/zero of=Image bs=1 count=0 seek=1474560
+	qemu-system-i386 -drive format=raw,file=Image,index=0,if=floppy -boot a -hdb hd_oldlinux.img -m 8 -machine pc
 
 run-curses:
 	qemu-system-i386 -display curses -drive format=raw,file=Image,index=0,if=floppy -boot a -hdb hd_oldlinux.img -m 8 -machine pc-i440fx-2.5
