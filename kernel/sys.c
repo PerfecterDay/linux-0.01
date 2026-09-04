@@ -235,3 +235,7 @@ int sys_null(int nr)
 	return -ENOSYS;
 }
 
+inline int printMyScall(){
+	printk("system call happened\n");
+	return 0;
+}

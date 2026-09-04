@@ -129,7 +129,7 @@ void init(void)
 	(void) dup(0);
 	printf("%d buffers = %d bytes buffer space\n\r",NR_BUFFERS,
 		NR_BUFFERS*BLOCK_SIZE);
-	printf(" Ok.\n\r");
+	printf(" Hello from my kernel.\n\r");
 	if ((i=fork())<0)
 		printf("Fork failed in init\r\n");
 	else if (!i) {
